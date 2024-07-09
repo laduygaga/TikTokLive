@@ -37,6 +37,7 @@ class RoomIdHTMLRoute(ClientRoute):
 
         # Parse & update the web client
         room_id: str = self.parse_room_id(response.text)
+        room_id = room_id.split(":")[1].replace('"', "")
         self._web.params["room_id"] = room_id
         return room_id
 
